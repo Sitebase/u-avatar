@@ -1,0 +1,27 @@
+{
+  "name": "uavatar",
+  "version": "0.1.0",
+  "authors": [
+    "Wim Mostmans <wim@sitebase.be>"
+  ],
+  "description": "Universal avatar makes it possible to provider the information available about a person and will automatically fetch the avatar of this user.",
+  "main": "dist/uavatar.html",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "avatar"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.sitebase.be",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.2.3",
+    "md5": "blueimp-md5#1.1.0"
+  }
+}

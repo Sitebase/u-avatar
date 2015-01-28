@@ -1,0 +1,44 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="u-avatar" attributes="email facebook-id twitter-id google-id skype-id name value color size round src">
+
+<template>
+	<style>
+		:host {
+			display: inline-block;
+			line-height: 0;
+		}
+		img {
+			max-width: 100%;
+		}
+		#content {
+			background-color: {{ bgcolor }};
+			width: {{ size }}px;
+			height: {{ size }}px;
+			text-align: center;
+			color: #FFF;
+			text-transform: uppercase;
+			font: {{ fontSize }}px/{{ size + size/10 }}px Helvetica, Arial, sans-serif;
+		}
+		.round {
+			border-radius: {{ size }}px;
+		}
+	</style>
+	<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
+	<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
+</template>
+
+<!-- build:remove -->
+<script src="js/md5.min.js"></script>
+<script src="js/main.js"></script>
+<!-- /build -->
+
+<script>
+<!-- build:include script.min.js -->
+<!-- /build -->
+</script>
+
+</polymer-element>
+

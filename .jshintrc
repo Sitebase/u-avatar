@@ -1,0 +1,11 @@
+{
+    "browser": true,
+    "predef": [  "Polymer", "md5" ],
+    "strict": true,
+    "white": true,
+    "undef": true,
+  	"unused": false,
+    "trailing": true,
+    "camelcase": false,
+    "ignores": []
+}
