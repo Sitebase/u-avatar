@@ -12,6 +12,8 @@
 		}
 		img {
 			max-width: 100%;
+			width: {{ size }}px;
+			height: {{ size }}px;
 		}
 		#content {
 			background-color: {{ bgcolor }};
@@ -26,8 +28,10 @@
 			border-radius: {{ size }}px;
 		}
 	</style>
-	<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
-	<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
+	<div id="wrap">
+		<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
+		<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
+	</div>
 </template>
 
 <!-- build:remove -->
