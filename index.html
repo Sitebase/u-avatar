@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Universal avatar</title>
+
+	<!-- Importing Web Component's Polyfill -->
+	<script src="bower_components/platform/platform.js"></script>
+
+	<!-- Importing Custom Elements -->
+	<link rel="import" href="src/u-avatar.html">
+</head>
+<body>
+
+	<!-- Using Custom Elements -->
+	<div>
+		<h2>Gravatar</h2>
+		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="40"></u-avatar>
+		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="100"></u-avatar>
+		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" round="true" size="200"></u-avatar>
+		<u-avatar email="invalid_hash" size="200"></u-avatar>
+		<u-avatar email="wim@sitebase.be" size="250"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Google+</h2>
+		<u-avatar google-id="118096717852922241760" size="200"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Facebook</h2>
+		<u-avatar facebook-id="100008343750912" size="normal"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Skype</h2>
+		<u-avatar skype-id="sitebase"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Name</h2>
+		<u-avatar name="Wim Mostmans" size="24"></u-avatar>
+		<u-avatar name="Wim Mostmans" size="200"></u-avatar>
+		<u-avatar name="Wim Mostmans" size="100" round="true"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Value</h2>
+		<u-avatar value="100%" size="24"></u-avatar>
+	</div>
+
+	<div>
+		<h2>Default</h2>
+		<u-avatar size="100" src="http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3?s=<%=size%>"></u-avatar>
+	</div>
+
+</body>
+</html>
