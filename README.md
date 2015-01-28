@@ -49,6 +49,15 @@ Or [download as ZIP](https://github.com/sitebase/u-avatar/archive/master.zip).
     <u-avatar></u-avatar>
     ```
 
+Some examples:
+
+    <u-avatar google-id="118096717852922241760" size="100" round="true"></u-avatar>
+    <u-avatar facebook-id="100008343750912" size="150"></u-avatar>
+    <u-avatar skype-id="sitebase" size="200"></u-avatar>
+    <u-avatar name="Wim Mostmans" size="150"></u-avatar>
+    <u-avatar value="86%" size="40"></u-avatar>
+    <u-avatar size="100" facebook-id="invalidfacebookusername" src="http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3"></u-avatar>
+
 ## Options
 
 |   Attribute   |      Options      | Default |                                Description                                 |
