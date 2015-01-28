@@ -43,9 +43,6 @@ module.exports = function(grunt) {
             }
         },
         processhtml: {
-            options: {
-            // Task-specific options go here.
-            },
             my_target: {
                 files: {
                     'dist/u-avatar.html': 'dist/u-avatar.html'

@@ -9,7 +9,7 @@
 	 * @param  {Function} cb    
 	 * @return {void}         
 	 */
-	function getGravatarURL(email, size, cb )
+	function getGravatarURL(email, size, cb, tryNext )
 	{
 		var base = 'gravatar.com/avatar/<%=id%>?s=<%=size%>';
 
@@ -28,7 +28,7 @@
 	 * @param  {Function} cb   
 	 * @return {void} 
 	 */
-	function getFacebookURL( id, size, cb )
+	function getFacebookURL( id, size, cb, tryNext )
 	{
 		var base = 'graph.facebook.com/<%=id%>/picture?width=<%=size%>';
 		cb( protocol + '//' + parse(base, {id: id, size: size}));
@@ -41,14 +41,14 @@
 	 * @param  {Function} cb   
 	 * @return {void}
 	 */
-	function getGoogleURL( id, size, cb )
+	function getGoogleURL( id, size, cb, tryNext )
 	{
 		var base = 'picasaweb.google.com/data/entry/api/user/<%=id%>?alt=json';
 		var url = protocol + '//' + parse(base, {id: id});
 		get(url, function(data) {
 			var src = data.entry.gphoto$thumbnail.$t.replace('s64', 's' + size); // replace with the correct size
 			cb(src);
-		});
+		}, tryNext);
 	}
 
 	/**
@@ -58,7 +58,7 @@
 	 * @param  {Function} cb
 	 * @return {void}
 	 */
-	function getSkypeURL( id, size, cb )
+	function getSkypeURL( id, size, cb, tryNext )
 	{
 		var base = 'api.skype.com/users/<%=id%>/profile/avatar';
 		cb(protocol + '//' + parse(base, {id: id}));
@@ -133,6 +133,11 @@
 	 */
 	P('u-avatar', { // jshint ignore:line
 
+		triedFacebook: false,
+		triedGoogle: false,
+		triedSkype: false,
+		triedGravatar: false,
+
 		/**
 		 * When an attribute is changed update the avatar
 		 */
@@ -144,31 +149,43 @@
 		 * Triggerd when a <u-avatar> element is add to the DOM
 		 */
 		attached: function() {
-			var url = null;
-			var size = this.size || 60;
+			this.size = parseInt(this.size, 10) || 60;
 
 			this.imageHidden = false;
 			this.contentHidden = true;
-			this.size = parseInt(size, 10);
-			this.fontSize = Math.floor(size/3);
+			this.fontSize = Math.floor(this.size/3);
 
-			if( url === null && this.has('facebook-id')) {
-				getFacebookURL( this['facebook-id'] , size, this.setSrc.bind(this) );
+			this.fetch();
+		},
+
+		fetch: function() {
+			var url = null;
+			var self = this;
+			var tryNext = function() { self.fetch() };
+
+			this.$.avatar.onerror = tryNext;
+
+			if( this.triedFacebook === false && url === null && this.has('facebook-id')) {
+				getFacebookURL( this['facebook-id'] , this.size, this.setSrc.bind(this), tryNext );
+				this.triedFacebook = true;
 				return;
 			}
 
-			if( url === null && this.has('google-id')) {
-				getGoogleURL( this['google-id'] , size, this.setSrc.bind(this) );
+			if( this.triedGoogle === false && url === null && this.has('google-id')) {
+				getGoogleURL( this['google-id'] , this.size, this.setSrc.bind(this), tryNext );
+				this.triedGoogle = true;
 				return;
 			}
 
-			if( url === null && this.has('skype-id')) {
-				getSkypeURL( this['skype-id'] , size, this.setSrc.bind(this) );
+			if( this.triedSkype === false && url === null && this.has('skype-id')) {
+				getSkypeURL( this['skype-id'] , this.size, this.setSrc.bind(this), tryNext );
+				this.triedSkype = true;
 				return;
 			}
 
-			if( url === null && this.has('email')) {
-				getGravatarURL( this.email, size, this.setSrc.bind(this) );
+			if( this.triedGravatar === false && url === null && this.has('email')) {
+				getGravatarURL( this.email, this.size, this.setSrc.bind(this), tryNext );
+				this.triedGravatar = true;
 				return;
 			}
 
@@ -182,7 +199,7 @@
 				this.value = getInitials( this.name );
 
 			if( url === null && this.has('src')) {
-				this.setSrc( parse(this.src, {size: size}) );
+				this.setSrc( parse(this.src, {size: this.size}) );
 				return;
 			}
 		},
