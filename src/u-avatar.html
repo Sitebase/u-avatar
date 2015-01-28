@@ -28,10 +28,8 @@
 			border-radius: {{ size }}px;
 		}
 	</style>
-	<div id="wrap">
-		<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
-		<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
-	</div>
+	<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
+	<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
 </template>
 
 <!-- build:remove -->

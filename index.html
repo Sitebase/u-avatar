@@ -73,8 +73,14 @@
 
 	<section>
 		<h2>Fallback to static src</h2>
-		<u-avatar size="100" src="http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3?s=<%=size%>"></u-avatar>
+		<u-avatar size="100" facebook-id="invalidfacebookusername" src="http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3?s=<%=size%>"></u-avatar>
 	</section>
+
+	<section>
+		<h2>Double fallback: Facebook to Google to initials</h2>
+		<u-avatar facebook-id="invalidfacebookusername" google-id="invalidgoogleid" name="Sitebase" size="200" round="true"></u-avatar>
+	</section>
+
 	</div>
 
 </body>
