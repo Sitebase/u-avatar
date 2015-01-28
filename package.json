@@ -1,7 +1,7 @@
 {
   "name": "uavatar",
   "version": "0.1.0",
-  "description": "Universal avatar makes it possible to provider the information available about a person and will automatically fetch the avatar of this user.",
+  "description": "Universal avatar makes it possible to fetch/generate an avatar based on the information you have about that user.",
   "main": "dist/uavatar.html",
   "scripts": {
     "test": "grunt test",

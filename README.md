@@ -1,9 +1,9 @@
 # &lt;u-avatar&gt;
 
-Universal avatar makes it possible to generate an avatar for a user regardeless of what information you have of that specific user. 
-We use a fallback system that if for example no Facebook ID is know it will try Google, and so on.
+Universal avatar makes it possible to fetch/generate an avatar based on the information you have about that user. 
+We use a fallback system that if for example an invalid Facebook ID is used it will try Google, and so on.
 
-For the moment we support following avatars:
+For the moment we support following types:
 * Facebook
 * Google
 * Skype
