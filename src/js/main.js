@@ -30,8 +30,8 @@
 	 */
 	function getFacebookURL( id, size, cb )
 	{
-		var base = 'graph.facebook.com/<%=id%>/picture';
-		cb( protocol + '//' + parse(base, {id: id}));
+		var base = 'graph.facebook.com/<%=id%>/picture?width=<%=size%>';
+		cb( protocol + '//' + parse(base, {id: id, size: size}));
 	}
 
 	/**
@@ -150,7 +150,7 @@
 			this.imageHidden = false;
 			this.contentHidden = true;
 			this.size = parseInt(size, 10);
-			this.fontSize = Math.floor(size/2.4);
+			this.fontSize = Math.floor(size/3);
 
 			if( url === null && this.has('facebook-id')) {
 				getFacebookURL( this['facebook-id'] , size, this.setSrc.bind(this) );
