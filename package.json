@@ -1,6 +1,6 @@
 {
   "name": "uavatar",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Universal avatar makes it possible to fetch/generate an avatar based on the information you have about that user.",
   "main": "dist/uavatar.html",
   "scripts": {
