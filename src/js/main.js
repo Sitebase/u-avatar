@@ -150,7 +150,6 @@
 		 */
 		attached: function() {
 			this.size = parseInt(this.size, 10) || 60;
-
 			this.imageHidden = false;
 			this.contentHidden = true;
 			this.fontSize = Math.floor(this.size/3);

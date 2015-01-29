@@ -12,24 +12,18 @@
 		}
 		img {
 			max-width: 100%;
-			width: {{ size }}px;
-			height: {{ size }}px;
 		}
 		#content {
-			background-color: {{ bgcolor }};
-			width: {{ size }}px;
-			height: {{ size }}px;
 			text-align: center;
 			color: #FFF;
 			text-transform: uppercase;
-			font: {{ fontSize }}px/{{ size + size/10 }}px Helvetica, Arial, sans-serif;
 		}
 		.round {
-			border-radius: {{ size }}px;
+			border-radius: 500px;
 		}
 	</style>
-	<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}">
-	<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}">{{ value }}</div>
+	<img id="avatar" hidden?="{{ imageHidden }}" alt="{{name}}" width="{{ size }}" height="{{ size }}" class="{{ {round: round} | tokenList}}" style="width: {{ size }}px;height: {{ size }}px;">
+	<div id="content" hidden?="{{ contentHidden }}" class="{{ {round: round} | tokenList}}" style="background: {{ bgcolor }};width: {{ size }}px; height: {{ size }}px; font: {{ fontSize }}px/{{ size + size/15 }}px Helvetica, Arial, sans-serif;">{{ value }}</div>
 </template>
 
 <!-- build:remove -->
