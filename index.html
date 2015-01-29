@@ -5,7 +5,7 @@
 	<title>&lt;u-avatar&gt;</title>
 
 	<!-- Importing Web Component's Polyfill -->
-	<script src="bower_components/platform/platform.js"></script>
+	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 
 	<!-- Importing Custom Elements -->
 	<link rel="import" href="src/u-avatar.html">
@@ -18,68 +18,12 @@
 		<p>Universal avatar makes it possible to fetch/generate an avatar based on information you have</p>
 	</div>
 	<div id="container">
-	<section>
-		<h2>Gravatar</h2>
-		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="40"></u-avatar>
-		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="100" round="true"></u-avatar>
-		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="150"></u-avatar>
-		<u-avatar email="8c5d4c4b9ef6c68c4ff91c319d4c56be" size="200"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Invalid gravatar</h2>
-		<u-avatar email="bla" size="80"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Google+</h2>
-		<u-avatar google-id="116933859726289749306" size="40"></u-avatar>
-		<u-avatar google-id="116933859726289749306" size="100" round="true"></u-avatar>
-		<u-avatar google-id="116933859726289749306" size="150"></u-avatar>
-		<u-avatar google-id="116933859726289749306" size="200"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Facebook</h2>
-		<u-avatar facebook-id="100008343750912" size="40"></u-avatar>
-		<u-avatar facebook-id="100008343750912" size="100" round="true"></u-avatar>
-		<u-avatar facebook-id="100008343750912" size="150"></u-avatar>
-		<u-avatar facebook-id="100008343750912" size="200"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Skype</h2>
-		<u-avatar skype-id="sitebase" size="40"></u-avatar>
-		<u-avatar skype-id="sitebase" size="100" round="true"></u-avatar>
-		<u-avatar skype-id="sitebase" size="150"></u-avatar>
-		<u-avatar skype-id="sitebase" size="200"></u-avatar>
-	</section>
 
 	<section>
 		<h2>Initials</h2>
-		<u-avatar name="Wim Mostmans" size="40"></u-avatar>
 		<u-avatar name="Wim Mostmans" size="100" round="true"></u-avatar>
-		<u-avatar name="Wim Mostmans" size="150"></u-avatar>
-		<u-avatar name="Wim Mostmans" size="200"></u-avatar>
 	</section>
 
-	<section>
-		<h2>Value</h2>
-		<u-avatar value="86%" size="40"></u-avatar>
-		<u-avatar value="86%" size="100" round="true"></u-avatar>
-		<u-avatar value="86%" size="150"></u-avatar>
-		<u-avatar value="86%" size="200"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Fallback to static src</h2>
-		<u-avatar size="100" facebook-id="invalidfacebookusername" src="http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3?s=<%=size%>"></u-avatar>
-	</section>
-
-	<section>
-		<h2>Double fallback: Facebook to Google to initials</h2>
-		<u-avatar facebook-id="invalidfacebookusername" google-id="invalidgoogleid" name="Sitebase" size="200" round="true"></u-avatar>
-	</section>
 
 	</div>
 

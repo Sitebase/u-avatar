@@ -21,7 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.2.3",
-    "md5": "blueimp-md5#1.1.0"
+    "md5": "blueimp-md5#1.1.0",
+    "polymer": "Polymer/polymer#~0.5.4"
   }
 }

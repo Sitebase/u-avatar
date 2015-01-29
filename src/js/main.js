@@ -211,7 +211,7 @@
 		 */
 		has: function( attr )
 		{
-			return this[attr] !== null ? true : false;
+			return this[attr] !== undefined && this[attr] !== null ? true : false;
 		},
 
 		/**
